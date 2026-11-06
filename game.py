@@ -2,19 +2,21 @@ import random
 health=100
 score=0
 def main():
-    print("1. Cave")
-    print("2. Forest")
-    print("3. Exit")
+    print("You are in the forest")
+    print("1. Cave  2. River  3. Quit")
     n=int(input("Enter Choice: "))
     if n==1:
         cave()
     elif n==2:
-        forest()
+        river()
     elif n==3:
         print("Thanku for playing")
         print(f"Final health: {health}")
         print(f"Final Score: {score}")
         exit
+    else:
+        print("Invalid Syntax")
+        main()
 
 def cave():
     dam=random.randint(10,40)
@@ -23,10 +25,8 @@ def cave():
     health-=dam
     if health>0:
         score+=20
-        print("You've found a key in the cave")
-        print(f"Damage: {dam}")
-        print(f"Health: {health}")
-        print(f"Score: {score}")
+        print(f"CAVE: Cave spider attacks!! | Damage: {dam} Health: {health}")
+        print(f"You've found a key in the cave | Score: {score}")
         print("")
         main()
     else:
@@ -37,16 +37,14 @@ def dead():
     global health
     health=0
     print("GAME OVER")
-    print(f"You have died!!")
+    print(f"You fought bravely and you have died a legend.")
     print(f"Final Health: {health}")
     print(f"Final Score: {score}")
 
-def forest():
+def river():
     global score
     score+=60
-    print("You've found a treasure in the forest!!")
-    print(f"Health: {health}")
-    print(f"Score: {score}")
+    print(f"RIVER: You've found a treasure in the river bed!! | Score: {score} Health: {health}")
     main()
 
 main()
